@@ -71,7 +71,7 @@ namespace TechJobsTests
             productTester.EmployerLocation.Value = "";
             productTester.JobType.Value = "";
             productTester.JobCoreCompetency.Value = "";
-            Assert.AreEqual("OOPS! This job does not seem to exist.", productTester.ToString());
+            Assert.AreEqual("No matching job.", productTester.ToString());
         }
     }
 }
