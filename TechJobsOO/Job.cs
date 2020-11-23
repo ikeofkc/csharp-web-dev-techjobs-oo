@@ -26,6 +26,26 @@ namespace TechJobsOO
             CoreCompetency = jobCoreCompetency;
         }
         // TODO: Generate Equals() and GetHashCode() methods.
+        public override boolean Equals(object toBeCompared) {
+
+            if (toBeCompared == this)
+            {
+                return true;
+            }
+
+            if (toBeCompared == null)
+            {
+                return false;
+            }
+
+            if (toBeCompared.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            Job j = toBeCompared as Job;
+            return j.Id == Id;
+        }
 
     }
 }
