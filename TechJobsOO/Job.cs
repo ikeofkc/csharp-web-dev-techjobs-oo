@@ -18,34 +18,23 @@ namespace TechJobsOO
             Id = nextId;
             nextId++;
         }
-        public Job(Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency): this()
+        public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency): this()
         {
-            Employer = employerName;
-            Location = employerLocation;
-            PositionType = jobType;
-            CoreCompetency = jobCoreCompetency;
-        }
-        // TODO: Generate Equals() and GetHashCode() methods.
-        public override boolean Equals(object toBeCompared) {
-
-            if (toBeCompared == this)
-            {
-                return true;
-            }
-
-            if (toBeCompared == null)
-            {
-                return false;
-            }
-
-            if (toBeCompared.GetType() != this.GetType())
-            {
-                return false;
-            }
-
-            Job j = toBeCompared as Job;
-            return j.Id == Id;
+            Name = name;
+            EmployerName = employerName;
+            EmployerLocation = employerLocation;
+            JobType = jobType;
+            JobCoreCompetency = jobCoreCompetency;
         }
 
+        // TODO: Generate Equals() method.
+        public override bool Equals(object obj)
+        {
+            return obj is Job job &&
+                   Id == job.Id;
+        }
+        public override int GetHashCode() {
+                return HashCode.Combine(Id);
+        }
     }
 }
