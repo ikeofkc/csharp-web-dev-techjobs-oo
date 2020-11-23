@@ -27,12 +27,12 @@ namespace TechJobsTests
         public void TestJobConstructorSetsAllFields()
         {
             Job productTester = new Job(nam, emp, loc, typ, comp);
-            Assert.AreEqual(1, productTester.Id);
-            Assert.AreEqual("Test", productTester.Name);
-            Assert.AreEqual(acme, productTester.EmployerName);
-            Assert.AreEqual(desert, productTester.EmployerLocation);
-            Assert.AreEqual(qualityControl, productTester.JobType);
-            Assert.AreEqual(persistence, productTester.JobCoreCompetency);
+            Assert.AreEqual(3, productTester.Id);
+            Assert.AreEqual("Tester", productTester.Name);
+            Assert.AreEqual(emp, productTester.EmployerName);
+            Assert.AreEqual(loc, productTester.EmployerLocation);
+            Assert.AreEqual(typ, productTester.JobType);
+            Assert.AreEqual(comp, productTester.JobCoreCompetency);
         }
 
         [TestMethod]
@@ -47,9 +47,9 @@ namespace TechJobsTests
         public void TestJobsToString()
         {
             Job productTester = new Job(nam, emp, loc, typ, comp);
-            string sampleListing = $"\nID: 4\nName: Product tester\nEmployer: ACME" +
-                    $"\nLocation: Desert\nPosition Type: Quality control" +
-                    $"\nCore Competency: Persistence\n";
+            string sampleListing = $"\nID: 6\nName: Tester\nEmployer: ACME" +
+                    $"\nLocation: Home\nPosition Type: UX" +
+                    $"\nCore Competency: Tasting ability\n";
             Assert.AreEqual(sampleListing, productTester.ToString());
         }
 
@@ -58,9 +58,10 @@ namespace TechJobsTests
         {
             Job productTester = new Job(nam, emp, loc, typ, comp);
             productTester.EmployerName.Value = "";
-            Assert.AreEqual("\nID: 5\nName: Product tester" +
-                "\nEmployer: Data not available\nLocation: Desert" +
-                "\nPosition Type: Quality control\nCore Competency: Persistence\n", productTester.ToString());
+            Assert.AreEqual("\nID: 7\nName: Tester" +
+                "\nEmployer: Data not available\nLocation: Home" +
+                "\nPosition Type: UX" + 
+                "\nCore Competency: Tasting ability\n", productTester.ToString());
         }
 
         [TestMethod]
